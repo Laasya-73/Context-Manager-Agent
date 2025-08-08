@@ -68,6 +68,7 @@ graph TD
     CM --> Store[State Extractor + Context Updater]
     CM --> Retrieve[Context Retriever + Merger]
   end
+```
 
 ---
 
