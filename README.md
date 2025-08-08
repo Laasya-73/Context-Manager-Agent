@@ -65,27 +65,24 @@ graph TD
     IR --> QE[Query Engine Agent]
     QE --> VA[Visualization Agent]
     VA --> CM[Context Manager Agent]
-    CM --> Next[Waits for next prompt]
 
-    subgraph Context Actions
-        CM --> SE[State Extractor]
-        CM --> CU[Context Updater]
-        CM --> PA[Pattern Analyzer]
-        CM --> PL[Preference Learner]
-        CM --> CS[Context Store]
-        CM --> CR[Context Retriever]
-        CM --> RF[Relevance Filter]
-        CM --> CMG[Context Merger]
+    CM --> SE[State Extractor]
+    CM --> CU[Context Updater]
+    CM --> PA[Pattern Analyzer]
+    CM --> PL[Preference Learner]
+    CM --> CS[Context Store]
+    CM --> CR[Context Retriever]
+    CM --> RF[Relevance Filter]
+    CM --> CMG[Context Merger]
+    CMG --> IR
 
-        SE --> STT[StateTrackerTool]
-        CU --> STT
-        PA --> STT
-        PL --> PLT[PreferenceLearnerTool]
-        CS --> STT
-        CR --> CFT[ContextFetcherTool]
-        RF --> CFT
-        CMG --> CFT
-    end
+    %% Tools Used
+    SE --> STT[StateTrackerTool]
+    CR --> CFT[ContextFetcherTool]
+    CS --> CFT
+    CMG --> CFT
+    PL --> PLT[PreferenceLearnerTool]
+    CU --> LPT[LayoutPlannerTool]
 
 ---
 
