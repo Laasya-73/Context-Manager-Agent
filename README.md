@@ -83,6 +83,7 @@ graph TD
     CMG --> CFT
     PL --> PLT[PreferenceLearnerTool]
     CU --> LPT[LayoutPlannerTool]
+```
 
 ---
 
