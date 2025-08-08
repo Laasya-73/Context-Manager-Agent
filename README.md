@@ -77,12 +77,12 @@ graph TD
     CM --> RF[Relevance Filter]
     CM --> CMG[Context Merger]
 
-  SE --> STT[StateTrackerTool]
-  CR --> CFT[ContextFetcherTool]
-  CS --> STT
-  RF --> CFT
-  PL --> PLT[PreferenceLearnerTool]
-  CU --> LPT[LayoutPlannerTool]
+    SE --> STT[StateTrackerTool]
+    CR --> CFT[ContextFetcherTool]
+    CS --> STT
+    RF --> CFT
+    PL --> PLT[PreferenceLearnerTool]
+    CU --> LPT[LayoutPlannerTool]
    end
 
 ---
