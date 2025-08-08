@@ -44,7 +44,7 @@ The Context Manager Agent maintains conversational state, visual history, user p
 
 ---
 
-## 📈 *Fully Dynamic Execution Path*
+## 📈 Fully Dynamic Execution Path
 
 The Context Manager Agent is invoked after every successful visualization generation and before any new prompt is processed. It updates internal state and retrieves relevant context dynamically based on the current user query.
 
@@ -57,7 +57,7 @@ The Context Manager Agent is invoked after every successful visualization genera
 
 ---
 
-## ⚙️ *LangGraph Architecture*
+## ⚙️ LangGraph Architecture
 
 ```mermaid
 graph TD
@@ -76,7 +76,6 @@ graph TD
     CM --> CR[Context Retriever]
     CM --> RF[Relevance Filter]
     CM --> CMG[Context Merger]
-  end
 
   SE --> STT[StateTrackerTool]
   CR --> CFT[ContextFetcherTool]
@@ -84,6 +83,7 @@ graph TD
   RF --> CFT
   PL --> PLT[PreferenceLearnerTool]
   CU --> LPT[LayoutPlannerTool]
+   end
 
 ---
 
