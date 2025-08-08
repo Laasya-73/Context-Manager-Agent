@@ -44,7 +44,7 @@ The Context Manager Agent maintains conversational state, visual history, user p
 
 ---
 
-## 📊 *Fully Dynamic Execution Path*
+## 📈 *Fully Dynamic Execution Path*
 
 The Context Manager Agent is invoked after every successful visualization generation and before any new prompt is processed. It updates internal state and retrieves relevant context dynamically based on the current user query.
 
@@ -164,7 +164,7 @@ graph TD
 
 ---
 
-## 🪛 *Output (to Intent Resolver Agent or other agents)*
+## 📏 *Output (to Intent Resolver Agent or other agents)*
 
 ```json
 {
