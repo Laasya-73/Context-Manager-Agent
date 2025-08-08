@@ -30,7 +30,10 @@ The Context Manager Agent maintains conversational state, visual history, user p
 6. Recommend layout positions or reuse of chart slots.
 7. Manage user sessions via unique IDs.
 8. Handle both successful and failed prompt attempts.
-
+9. Identify user behavior patterns across prompts.
+10. Learn visualization preferences through prompt outcomes.
+11. Filter and surface the most relevant context to enhance clarity.
+    
 ### ❌ The Agent WILL NOT:
 
 - Generate SQL queries or data visualizations.
@@ -65,8 +68,14 @@ graph TD
   CM --> Next[Waits for next prompt]
 
   subgraph Context Actions
-    CM --> Store[State Extractor + Context Updater]
-    CM --> Retrieve[Context Retriever + Merger]
+    CM --> SE[State Extractor]
+    CM --> CU[Context Updater]
+    CM --> PA[Pattern Analyzer]
+    CM --> PL[Preference Learner]
+    CM --> CS[Context Store]
+    CM --> CR[Context Retriever]
+    CM --> RF[Relevance Filter]
+    CM --> CMG[Context Merger]
   end
 ```
 
@@ -89,7 +98,11 @@ graph TD
 |------------------------|-----------------------------------------------------------------------------------|
 | **State Extractor**    | Extracts visualization metadata from current chart response.                     |
 | **Context Updater**    | Appends or modifies context based on latest interaction.                         |
+| **Pattern Analyzer**   | Identifies user behavior trends and interaction patterns.                        |
+| **Preference Learner** | Learns charting, layout, and data preferences over time.                         |
+| **Context Store**      | Stores session and prompt metadata persistently.                                 |
 | **Context Retriever**  | Pulls relevant prior context for follow-up queries.                              |
+| **Relevance Filter**   | Filters only the most relevant context for the current prompt.                   |
 | **Context Merger**     | Combines new query with historical context to refine intent resolution.          |
 
 ---
@@ -119,6 +132,10 @@ graph TD
 - Know which chart containers are filled or free.
 - Suggest layout shifts to avoid overwrite.
 
+### **User Preference Learning**
+- Update preferences based on successful visualizations.
+- Capture preferred chart types for specific query types.
+
 ---
 
 ## 🧑‍💼 *Agent Persona & Tone*
@@ -129,6 +146,21 @@ graph TD
 | **Tone**               | Reliable, quiet, memory-driven. *Doesn't speak directly to user.*               |
 | **Contextual Mastery** | Always ready to help other agents recall the right info.                        |
 | **Non-Intrusive**      | Works in the background, but ensures everything runs smoothly.                  |
+
+
+### *Tone Examples*
+
+- **On Chart Recall:**
+
+  > "Using your last selection of 'sales by month' to adjust dimension to 'region'."
+
+- **On Layout Planning:**
+
+  > "Slot 2 is available; new chart will be placed there."
+
+- **On Preference Recall:**
+
+  > "Applied your preferred chart type: 'bar' with light theme."
 
 ---
 
@@ -157,3 +189,6 @@ graph TD
     "theme": "light"
   }
 }
+```
+
+This output equips downstream agents with all necessary past context to interpret the next prompt accurately.
